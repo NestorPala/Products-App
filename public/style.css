@@ -1,0 +1,14 @@
+* {
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    font-weight: bold;
+}
+
+ul, li {
+    list-style-type: none;
+    padding:0;
+}
+
+.product {
+    margin: 50px;
+}
