@@ -5,10 +5,14 @@ Made using:
 * CSS (w/o frameworks, pure)
 * JavaScript
 * MongoDB
-* Express.js v4.18.1
-* Node.js v16.17.0
+* Express.js v4.18
+* Node.js v16.17
 * Nodemon
 * Dotenv
+
+Deployed using:
+* Heroku
+* MongoDB online database
 
 Includes:
 * Backend page for managing products
