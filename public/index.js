@@ -98,6 +98,11 @@ fetch(apiURL)
 let formAddProduct = document.getElementById("add-product");
 
 
+formAddProduct
+.getElementsByTagName("button")[0]
+.setAttribute("style", "margin-top: 20px;");
+
+
 formAddProduct.addEventListener("submit", function(e) {
     let newProduct = {
         name: formAddProduct["product-name"].value,
