@@ -6,20 +6,25 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.DATABASE_URL);
-const db = mongoose.connection;
-db.on("error", (err) => console.error(err));
-db.on("open", () => console.log("Connected to Database"));
-
+// Allowing server to handle json requests
 app.use(express.json())
+
+// Using directory for serving static files
 app.use(express.static(__dirname + '/public'));
 
+// Setting up the main endpoint
 app.get('/', (req, res) => {
   res.sendFile('index.html');
 });
 
-const productsRouter = require("./routes/products");
+// Setting up a router
+app.use("/products", require("./routes/products"));
 
-app.use("/products", productsRouter);
-
-app.listen(port, () => console.log('Server ready on port ' + port));
+// Opening the server after connecting to the DB
+mongoose.connect(process.env.DATABASE_URL, 
+  () => {
+    console.log("Connected to Database");
+    app.listen(port, () => console.log('Server ready on port ' + port));
+  },
+  err => console.error(err)
+);
