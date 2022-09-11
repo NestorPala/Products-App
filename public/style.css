@@ -12,3 +12,10 @@ ul, li {
 .product {
     margin: 50px;
 }
+
+#dev-disclaimer {
+    color: gray;
+    width: 40vw;
+    margin: auto;
+    padding-top: 20px;
+}

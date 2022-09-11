@@ -14,7 +14,7 @@ fetch(apiURL)
         const productPropertyList = document.createElement("ul");
         
         for (let propertyName in products[i]) {
-            if (propertyName == "_id" || propertyName == "__v") {
+            if (propertyName == "_id" || propertyName == "__v" || propertyName == "createdAt") {
                 continue;
             }
             const property = document.createElement("li");

@@ -13,6 +13,11 @@ const productSchema = new mongoose.Schema({
         type: Number,
         required: false,
     },
+    createdAt: { 
+        type: Date, 
+        expires: '1m', 
+        default: Date.now 
+    }
 });
 
 module.exports = mongoose.model("Product", productSchema);
