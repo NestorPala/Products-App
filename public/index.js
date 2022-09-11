@@ -25,8 +25,8 @@ fetch(apiURL)
 
         const removeProductButton = document.createElement("button");
         removeProductButton.id = products[i]["_id"];
+        removeProductButton.className = "remove-product-button";
         removeProductButton.innerHTML = "X";
-        removeProductButton.setAttribute("style", "width: 30px; height: 30px; margin: 10px; cursor: pointer;");
 
         removeProductButton.addEventListener("click", function(e) {
             fetch(apiURL + `/${removeProductButton.id}`, {method: "DELETE"})
@@ -39,8 +39,8 @@ fetch(apiURL)
 
         const addStockButton = document.createElement("button");
         addStockButton.id = products[i]["_id"];
+        addStockButton.className = "add-stock-button";
         addStockButton.innerHTML = "ADD STOCK";
-        addStockButton.setAttribute("style", "width: fit-content; height: 30px; margin: 10px; cursor: pointer;");
 
         addStockButton.addEventListener("click", function(e) {
             let stockToAdd = prompt("Enter amount of items for adding to stock:");
@@ -63,8 +63,8 @@ fetch(apiURL)
 
         const removeStockButton = document.createElement("button");
         removeStockButton.id = products[i]["_id"];
+        removeStockButton.className = "remove-stock-button";
         removeStockButton.innerHTML = "REMOVE STOCK";
-        removeStockButton.setAttribute("style", "width: fit-content; height: 30px; margin: 10px; cursor: pointer;");
 
         removeStockButton.addEventListener("click", function(e) {
             let stockToRemove = prompt("Enter amount of items for removing from stock:");
@@ -96,12 +96,6 @@ fetch(apiURL)
 
 
 let formAddProduct = document.getElementById("add-product");
-
-
-formAddProduct
-.getElementsByTagName("button")[0]
-.setAttribute("style", "margin-top: 20px;");
-
 
 formAddProduct.addEventListener("submit", function(e) {
     let newProduct = {

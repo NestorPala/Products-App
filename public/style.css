@@ -19,3 +19,16 @@ ul, li {
     margin: auto;
     padding-top: 20px;
 }
+
+.remove-product-button,
+.add-stock-button,
+.remove-stock-button {
+    width: fit-content; 
+    height: 30px; 
+    margin: 10px; 
+    cursor: pointer;
+}
+
+#add-product button {
+    margin-top: 20px;
+}
