@@ -1,5 +1,4 @@
-const apiURL = window.location.origin + '/products';
-
+const apiURL = window.location.origin + "/products";
 
 fetch(apiURL)
 .then(response => response.json())
@@ -90,22 +89,24 @@ fetch(apiURL)
         product.appendChild(addStockButton);
         product.appendChild(removeStockButton);
         productList.appendChild(product);
+
+        // Remove later (put it in CSS)
+        [removeProductButton, addStockButton, removeStockButton]
+        .forEach(element => {
+            element.setAttribute("style", "width: fit-content; height: 30px; margin: 10px; cursor: pointer; font-family: 'Raleway', sans-serif; font-weight: bold");
+        });
     }
     document.body.appendChild(productList);
 });
 
 
-let formAddProduct = document.getElementById("add-product");
-
-formAddProduct.addEventListener("submit", function(e) {
+function addProduct() {
     let newProduct = {
-        name: formAddProduct["product-name"].value,
-        price: formAddProduct["product-price"].value,
+        name: document.getElementById("product-name").value,
+        price: document.getElementById("product-price").value,
     };
 
-    e.preventDefault();
-
-    data = {
+    let data = {
         method: 'POST',
         headers : {
             'Content-Type': 'application/json',
@@ -121,4 +122,4 @@ formAddProduct.addEventListener("submit", function(e) {
             alert(json.message);
             location.reload();
         });
-});
+}

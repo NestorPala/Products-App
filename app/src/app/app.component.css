@@ -9,10 +9,6 @@ ul, li {
     padding:0;
 }
 
-.product {
-    margin: 50px;
-}
-
 #dev-disclaimer {
     color: gray;
     width: 40vw;
@@ -20,14 +16,14 @@ ul, li {
     padding-top: 20px;
 }
 
-.remove-product-button,
+/* .remove-product-button,
 .add-stock-button,
 .remove-stock-button {
     width: fit-content; 
     height: 30px; 
     margin: 10px; 
     cursor: pointer;
-}
+} */
 
 #add-product button {
     margin-top: 20px;

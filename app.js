@@ -5,14 +5,18 @@ const port = process.env.PORT || 3000;
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const cors = require('cors');
+
+// Allowing not to appear CORS error
+app.use(cors({origin: '*'}));
 
 // Allowing server to handle json requests
 app.use(express.json());
 
-// Using directory for serving static files
-app.use(express.static(__dirname + '/public'));
+//Using directory for serving static files
+app.use(express.static(__dirname + '/app/dist/e-commerce_app_backend'));
 
-// Setting up the main endpoint
+//Setting up the main endpoint
 app.get('/', (req, res) => {
   res.sendFile('index.html');
 });
