@@ -6,6 +6,7 @@ Made using:
 * JavaScript
 * MongoDB
 * Express.js v4.18
+* Angular 14
 * Node.js v16.17
 * Nodemon
 * Dotenv
