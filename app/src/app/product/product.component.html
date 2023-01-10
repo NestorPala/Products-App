@@ -1,0 +1,16 @@
+<div>
+    <p>ID: {{ _id_ }}</p>
+    <p>{{ name }}</p> 
+    <p>Price: $ {{ price }}</p>
+    <p>Stock: {{ stock }} items</p>
+
+    <app-button-delete-product [product_id]="_id_">
+    </app-button-delete-product>
+
+    <app-button-add-stock [product_id]="_id_">
+    </app-button-add-stock>
+
+    <app-button-remove-stock [product_id]="_id_">
+    </app-button-remove-stock>
+    <hr>
+</div>

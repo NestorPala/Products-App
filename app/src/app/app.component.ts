@@ -9,8 +9,6 @@ export class AppComponent {
   title = 'e-commerce_app_backend';
 
   ngOnInit() {
-    // let myScriptElement = document.createElement("script");
-    // myScriptElement.src = "/scripts/index.js";
-    // document.body.appendChild(myScriptElement);
+    //...
   }
 }
