@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
+import { ProductSchema } from "../interfaces/ProductSchema.js";
 
-const productSchema = new mongoose.Schema({
+export const productSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -20,4 +21,4 @@ const productSchema = new mongoose.Schema({
     }
 });
 
-export default mongoose.model("Product", productSchema);
+export default mongoose.model<ProductSchema>("Product", productSchema);

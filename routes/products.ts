@@ -1,10 +1,11 @@
-import express from "express";
+import express, { Request, Response, NextFunction } from "express"
+import { ProductResponse } from "../interfaces/ProductResponse.js";
 import Product from "../models/product.js"; // Using the model "Product"
 
 const router = express.Router();
 
 // Endpoint: Getting all products
-router.get("/", async (req, res) => {
+router.get("/", async (req: Request, res: ProductResponse) => {
     try {
         const products = await Product.find();
         res.json(products);
@@ -14,7 +15,7 @@ router.get("/", async (req, res) => {
 });
 
 // Endpoint: Getting one product
-router.get("/:id", getProduct, async (req, res) => {
+router.get("/:id", getProduct, async (req: Request, res: ProductResponse) => {
     try {
         res.json(res.product);
     } catch (serverError) {
@@ -23,7 +24,7 @@ router.get("/:id", getProduct, async (req, res) => {
 });
 
 // Endpoint: Creating one product
-router.post("/", async (req, res) => {
+router.post("/", async (req: Request, res: ProductResponse) => {
     if (req.body.price <= 0) {
         return res.status(400).json({ message : "Price has to be greater than zero"});
     }
@@ -50,7 +51,7 @@ router.post("/", async (req, res) => {
 });
 
 // Endpoint: Updating one product
-router.patch("/:id", getProduct, async (req, res) => {
+router.patch("/:id", getProduct, async (req: Request, res: ProductResponse) => {
     try {
         try {
 
@@ -79,7 +80,7 @@ router.patch("/:id", getProduct, async (req, res) => {
 });
 
 // Endpoint: Adding stock to one product
-router.patch('/:id/addstock', getProduct, async (req, res) => {
+router.patch('/:id/addstock', getProduct, async (req: Request, res: ProductResponse) => {
     try {
         let incomingStock = req.body.incomingStock;
 
@@ -115,7 +116,7 @@ router.patch('/:id/addstock', getProduct, async (req, res) => {
 });
 
 // Endpoint: Removing stock from one product
-router.patch('/:id/removestock', getProduct, async (req, res) => {
+router.patch('/:id/removestock', getProduct, async (req: Request, res: ProductResponse) => {
     try {
         let outgoingStock = req.body.outgoingStock;
 
@@ -159,7 +160,7 @@ router.patch('/:id/removestock', getProduct, async (req, res) => {
 });
 
 // Endpoint: Deleting one product
-router.delete("/:id", getProduct, async (req, res) => {
+router.delete("/:id", getProduct, async (req: Request, res: ProductResponse) => {
     try {
         await res.product.remove();
         res.json({ message: "Product deleted successfully" });
@@ -171,7 +172,7 @@ router.delete("/:id", getProduct, async (req, res) => {
 
 // Middleware: Checking if product exists
 // Returns a Product object
-async function getProduct(req, res, next) {
+async function getProduct(req: Request, res: Response, next: NextFunction) {
     let product;
     try {
         product = await Product.findById(req.params.id);
@@ -183,7 +184,7 @@ async function getProduct(req, res, next) {
     }
 
     // Setting the found (in the database) product as the product to work with
-    res.product = product;
+    (res as any).product = product;
 
     // Passing to the next middleware, or the endpoint if there's no other
     next();
