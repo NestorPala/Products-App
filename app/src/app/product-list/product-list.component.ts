@@ -18,7 +18,6 @@ export class ProductListComponent implements OnInit {
     fetch(this.apiURL)
     .then(response => response.json())
     .then(products => {
-      console.log(products);
       for (let product of products) {
         this.products.push({
           _id_: product._id,
@@ -29,7 +28,4 @@ export class ProductListComponent implements OnInit {
       }
     });
   }
-
-
-
 }

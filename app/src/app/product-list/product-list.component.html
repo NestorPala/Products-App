@@ -1,7 +1,8 @@
 <h1>List of products in stock</h1>
 
 <div *ngFor="let product of products">
-    <app-product 
+    <app-product
+    [_id_]="product._id_" 
     [name]="product.name" 
     [price]="product.price"
     [stock]="product.stock">
