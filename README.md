@@ -2,11 +2,11 @@
 
 Made using:
 * HTML
-* CSS (w/o frameworks, pure)
+* CSS
 * JavaScript
-* TypeScript
+* TypeScript 4.9.4
 * MongoDB
-* Express.js v4.18
+* Express.js
 * Angular 14
 * Node.js v16.17
 
@@ -18,7 +18,7 @@ Node modules used:
 * Nodemon
 
 Deployed using:
-* Heroku
+* Glitch
 * MongoDB online database
 
 Includes:
@@ -27,9 +27,7 @@ Includes:
 
 Endpoints:
 * Getting all products from database
-* Getting product by id
 * Adding a product to database
-* Deleting a product by id
-* Editing product name and product price, by id
-* Adding stock to an existing id
-* Removing stock from an existing id
+* Deleting a product
+* Adding stock to an existing product
+* Removing stock from an existing product
