@@ -1,4 +1,4 @@
-# E-Commerce-App-Backend
+# Products-App
 
 Made using:
 * HTML
