@@ -2,7 +2,7 @@
   "name": "e-commerce-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "exports": "./app.js",
   "scripts": {
     "dev": "nodemon app.js",
     "start": "node app.js"
@@ -21,5 +21,6 @@
   },
   "devDependencies": {
     "@types/node": "^18.11.18"
-  }
+  },
+  "type": "module"
 }

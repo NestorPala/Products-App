@@ -1,9 +1,7 @@
-const express = require("express");
+import express from "express";
+import Product from "../models/product.js"; // Using the model "Product"
+
 const router = express.Router();
-
-// Using the model "Product"
-const Product = require("../models/product");
-
 
 // Endpoint: Getting all products
 router.get("/", async (req, res) => {
@@ -191,5 +189,4 @@ async function getProduct(req, res, next) {
     next();
 }
 
-
-module.exports = router;
+export default router;

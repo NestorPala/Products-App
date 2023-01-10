@@ -1,17 +1,21 @@
-require('dotenv').config();
+import express, { json } from 'express';
+import { connect } from 'mongoose';
+import cors from 'cors';
+import dotenv from "dotenv";
+import path from 'path';
+import { fileURLToPath } from 'url';
+import productsRouter from './routes/products.js';
 
+dotenv.config();
 const port = process.env.PORT || 3000;
-
-const express = require('express');
 const app = express();
-const mongoose = require('mongoose');
-const cors = require('cors');
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Allowing not to appear CORS error
 app.use(cors({origin: '*'}));
 
 // Allowing server to handle json requests
-app.use(express.json());
+app.use(json());
 
 //Using directory for serving static files
 app.use(express.static(__dirname + '/app/dist/e-commerce_app_backend'));
@@ -22,10 +26,10 @@ app.get('/', (req, res) => {
 });
 
 // Setting up a router
-app.use("/products", require("./routes/products"));
+app.use("/products", productsRouter);
 
 // Opening the server after connecting to the DB
-mongoose.connect(process.env.DATABASE_URL)
+connect(process.env.DATABASE_URL)
 .then(
   () => {
     console.log("Connected to Database");
