@@ -4,7 +4,7 @@ import cors from 'cors';
 import dotenv from "dotenv";
 import path from 'path';
 import { fileURLToPath } from 'url';
-import productsRouter from './routes/products.js';
+import productsRouter from '@routes/products.js';
 
 dotenv.config();
 const port = process.env.PORT || 3000;

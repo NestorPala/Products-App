@@ -1,6 +1,6 @@
-import express, { Request, Response, NextFunction } from "express"
-import { ProductResponse } from "../interfaces/ProductResponse.js";
-import Product from "../models/product.js"; // Using the model "Product"
+import express, { Request, Response, NextFunction } from "express";
+import { ProductResponse } from "@interfaces/ProductResponse.js";
+import Product from "@models/product.js"; // Using the model "Product"
 
 const router = express.Router();
 

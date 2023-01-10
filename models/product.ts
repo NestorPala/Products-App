@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { ProductSchema } from "../interfaces/ProductSchema.js";
+import { ProductSchema } from "@interfaces/ProductSchema.js";
 
 export const productSchema = new mongoose.Schema({
     name: {

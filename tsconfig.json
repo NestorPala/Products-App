@@ -4,8 +4,14 @@
         "module": "ES2020",
         "outDir": "src",
         "moduleResolution": "Node",
-        "allowSyntheticDefaultImports": true
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": ".",
+        "paths": {
+            "@interfaces/*": ["interfaces/*"],
+            "@models/*": ["models/*"],
+            "@routes/*": ["routes/*"],
+        },
         // "esModuleInterop": true
     },
-    "exclude": [ "app" ]
+    "exclude": [ "app" ],
 }
