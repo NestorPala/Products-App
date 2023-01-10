@@ -2,12 +2,13 @@
 
 <div *ngFor="let product of products">
     <app-product
-    [_id_]="product._id_" 
-    [name]="product.name" 
-    [price]="product.price"
-    [stock]="product.stock">
+        [product]="product">
     </app-product>
 </div>
+
 <p id="dev-disclaimer">Disclaimer: items will disappear automatically after approximately 2 minutes.</p>
 <p>Create a new product:</p>
-<app-button-add-product></app-button-add-product>
+
+<app-button-add-product
+    (productAdder)="addProduct()">
+</app-button-add-product>

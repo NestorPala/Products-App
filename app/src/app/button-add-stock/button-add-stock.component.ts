@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Product } from '../classes/Product';
 
 @Component({
   selector: 'app-button-add-stock',
@@ -7,9 +8,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ButtonAddStockComponent implements OnInit {
 
-  @Input() product_id: string = "";
-
-  apiURL = "http://localhost:3000/products";
+  @Input() product: Product = {
+    _id_ : "0",
+    name : "",
+    price : 0,
+    stock : 0
+  };
+  @Output() stockAdder = new EventEmitter<Product>();
 
   constructor() { }
 
@@ -17,21 +22,6 @@ export class ButtonAddStockComponent implements OnInit {
   }
 
   addStock() {
-    let stockToAdd = prompt("Enter amount of items for adding to stock:");
-
-    fetch(this.apiURL + `/${this.product_id}/addstock`, { //hardcoded id
-      method: "PATCH",
-      headers : {
-          'Content-Type': 'application/json'
-      },
-      body : JSON.stringify({
-          incomingStock: stockToAdd,
-      }),
-    })
-    .then(res => res.json())
-    .then(json => {
-      alert(json.message);
-    });
+    this.stockAdder.emit(this.product);
   }
-
 }

@@ -28,4 +28,28 @@ export class ProductListComponent implements OnInit {
       }
     });
   }
-}
+
+  addProduct() {
+    let newProduct = {
+        name: (document.getElementById("product-name")! as HTMLInputElement).value,
+        price: (document.getElementById("product-price")! as HTMLInputElement).value,
+    };
+
+    let data = {
+        method: 'POST',
+        headers : {
+            'Content-Type': 'application/json',
+        },
+        body : JSON.stringify(newProduct),
+    }
+
+    let response = fetch(this.apiURL, data);
+
+    response
+      .then(res => res.json())
+      .then(json => {
+          alert(json.message);
+          location.reload(); //remove later
+      });
+    }
+  }

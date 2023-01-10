@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Product } from '../classes/Product';
 
 @Component({
   selector: 'app-button-remove-stock',
@@ -7,9 +8,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ButtonRemoveStockComponent implements OnInit {
 
-  @Input() product_id: string = "";
-
-  apiURL = "http://localhost:3000/products";
+  @Input() product: Product = {
+    _id_ : "0",
+    name : "",
+    price : 0,
+    stock : 0
+  };
+  @Output() stockRemover = new EventEmitter<Product>();
 
   constructor() { }
 
@@ -17,20 +22,6 @@ export class ButtonRemoveStockComponent implements OnInit {
   }
 
   removeStock() {
-    let stockToRemove = prompt("Enter amount of items for removing from stock:");
-
-    fetch(this.apiURL + `/${this.product_id}/removestock`, {
-      method: "PATCH",
-      headers : {
-          'Content-Type': 'application/json'
-      },
-      body : JSON.stringify({
-          outgoingStock: stockToRemove,
-      }),
-    })
-    .then(res => res.json())
-    .then(json => {
-      alert(json.message);
-    });
+    this.stockRemover.emit(this.product);
   }
 }

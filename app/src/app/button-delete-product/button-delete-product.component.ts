@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Product } from '../classes/Product';
 
 @Component({
   selector: 'app-button-delete-product',
@@ -7,20 +8,20 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ButtonDeleteProductComponent implements OnInit {
 
-  apiURL = "http://localhost:3000/products";
-
-  @Input() product_id: string = "";
+  @Input() product: Product = {
+    _id_ : "0",
+    name : "",
+    price : 0,
+    stock : 0
+  };
+  @Output() productDeleter = new EventEmitter<Product>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
-
-  removeProduct() {
-    fetch(this.apiURL + `/${this.product_id}`, {method: "DELETE"}) //hardcoded id
-      .then(res => res.json())
-      .then(json => {
-          alert(json.message);
-      });
+  
+  deleteProduct() {
+    this.productDeleter.emit(this.product);
   }
 }
