@@ -4,9 +4,9 @@
   "description": "",
   "exports": "./app.js",
   "scripts": {
-    "dev": "npm run build && nodemon src/app.js",
+    "dev": "npm run build && npm start",
     "start": "node src/app.js",
-    "build": "npm i && tsc --project tsconfig.json && tsc-alias -p tsconfig.json && cd app && npm i && ng build && cd .. && node src/app.js"
+    "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json"
   },
   "keywords": [],
   "author": "",
