@@ -6,9 +6,9 @@ Made using:
 * JavaScript
 * TypeScript 4.9.4
 * MongoDB
-* Express.js
-* Angular 14
-* Node.js v16.17
+* Express
+* Angular 14.2.2
+* Node.js 16.17.0
 
 Node modules used:
 * Cors
@@ -18,7 +18,7 @@ Node modules used:
 * Nodemon
 
 Deployed using:
-* Glitch
+* Render.com
 * MongoDB online database
 
 Includes:
