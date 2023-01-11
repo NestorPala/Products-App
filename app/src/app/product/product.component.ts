@@ -8,7 +8,7 @@ import { Product } from '../classes/Product';
 })
 export class ProductComponent implements OnInit {
 
-  apiURL = "http://localhost:3000/products";
+  apiURL = location.origin + "/products";
 
   @Input() product: Product = {
     _id_ : "0",
