@@ -16,6 +16,8 @@ Node modules used:
 * Express
 * Mongoose
 * Nodemon
+* tsc-alias
+* Typescript
 
 Deployed using:
 * Render.com
