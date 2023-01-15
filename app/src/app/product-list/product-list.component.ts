@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, isDevMode, OnInit } from '@angular/core';
 import { Product } from '../classes/Product';
 
 @Component({
@@ -8,13 +8,18 @@ import { Product } from '../classes/Product';
 })
 export class ProductListComponent implements OnInit {
 
-  apiURL = location.origin + "/products";
+  API_URL = isDevMode() ? "http://localhost:3000" : window.location.origin
+  apiURL = this.API_URL + "/products";
 
   products: Product[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
+    //...
+  }
+
+  ngAfterViewInit() {
     fetch(this.apiURL)
     .then(response => response.json())
     .then(products => {

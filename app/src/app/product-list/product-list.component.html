@@ -1,14 +1,19 @@
 <h1>List of products in stock</h1>
 
+<br>
+
+<div id="form-add-product">
+    <p id="dev-disclaimer">Disclaimer: items will disappear automatically after approximately 2 minutes.</p>
+    <p>Create a new product:</p>
+    <app-button-add-product
+        (productAdder)="addProduct()">
+    </app-button-add-product>
+</div>
+
+<br>
+
 <div *ngFor="let product of products">
     <app-product
         [product]="product">
     </app-product>
 </div>
-
-<p id="dev-disclaimer">Disclaimer: items will disappear automatically after approximately 2 minutes.</p>
-<p>Create a new product:</p>
-
-<app-button-add-product
-    (productAdder)="addProduct()">
-</app-button-add-product>
