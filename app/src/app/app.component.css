@@ -16,15 +16,25 @@ ul, li {
     padding-top: 20px;
 }
 
-/* .remove-product-button,
-.add-stock-button,
-.remove-stock-button {
-    width: fit-content; 
-    height: 30px; 
-    margin: 10px; 
-    cursor: pointer;
-} */
-
 #add-product button {
     margin-top: 20px;
 }
+
+/* Footer always at the bottom */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+app-product-list {
+    flex-grow: 1;
+}
+footer {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    margin: 5vh auto;
+}
+/* --------------------------- */
