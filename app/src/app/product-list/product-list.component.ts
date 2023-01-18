@@ -12,12 +12,7 @@ export class ProductListComponent implements OnInit {
   apiURL = this.API_URL + "/products";
 
   products: Product[] = [];
-  searchResults: Product[] = [{
-    _id_: "99999999999_search",
-    name: "test product",
-    price: 999999,
-    stock: 0
-  }];
+  searchResults: Product[] = [];
 
   productsToShow: Product[] = [];
 
