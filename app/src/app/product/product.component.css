@@ -1,0 +1,6 @@
+app-button-delete-product,
+app-button-add-stock,
+app-button-remove-stock {
+    display: inline-block;
+    margin: auto 2vw;
+}

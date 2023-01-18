@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+button,
+input[type=text],
+input[type=number] {
+    border: 2px black solid;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 0.75rem;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+}
+
+button {
+    cursor: pointer;
+}
