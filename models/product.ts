@@ -16,7 +16,7 @@ export const productSchema = new mongoose.Schema({
     },
     createdAt: { 
         type: Date, 
-        expires: '1m', 
+        expires: '10m', 
         default: Date.now 
     }
 });
