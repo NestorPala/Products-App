@@ -12,6 +12,14 @@ export class ProductListComponent implements OnInit {
   apiURL = this.API_URL + "/products";
 
   products: Product[] = [];
+  searchResults: Product[] = [{
+    _id_: "99999999999_search",
+    name: "test product",
+    price: 999999,
+    stock: 0
+  }];
+
+  productsToShow: Product[] = [];
 
   constructor() { }
 
@@ -30,6 +38,14 @@ export class ProductListComponent implements OnInit {
           price: product.price,
           stock: product.stock
         });
+      }
+      if (this.searching() === true) {
+        this.doSearch();
+        this.productsToShow = this.searchResults;
+        console.log("searching");
+      } else {
+        this.productsToShow = this.products;
+        console.log("not searching");
       }
     });
   }
@@ -57,4 +73,44 @@ export class ProductListComponent implements OnInit {
           location.reload(); //remove later
       });
     }
+
+    searching(): boolean {
+      return localStorage.getItem('searching') === "searching";
+    }
+
+    searchTerm(): string | null {
+      return localStorage.getItem('search_term');
+    }
+
+    doSearch(): void {
+      const term = this.searchTerm() ?? '';
+      if (term !== '') {
+        this.searchResults = this.products.filter(product => {
+          return product.name.toLowerCase().includes(term);
+        });
+      }
+    }
+
+    stopSearch(): void {
+      localStorage.setItem('searching', "not searching");
+      localStorage.setItem('search_term', '');
+    }
+
+    beginSearch(term: string): void {
+      localStorage.setItem('searching', "searching");
+      localStorage.setItem('search_term', term);
+    }
+
+    searchProduct(term: string) {
+      console.log("begin search");
+      this.beginSearch(term);
+      location.reload(); 
+    }
+
+    resetSearch() {
+      console.log("reset search");
+      this.stopSearch();
+      location.reload(); 
+    }
+
   }

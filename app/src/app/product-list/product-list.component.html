@@ -1,10 +1,10 @@
-<h1>List of products in stock</h1>
-
+<app-product-search-bar 
+    (searchTermEmitter)=searchProduct($event)
+    (resetSearchEmitter)="resetSearch()">
+</app-product-search-bar>
 <br>
-
 <div id="form-add-product">
     <p id="dev-disclaimer">Disclaimer: items will disappear automatically after approximately 2 minutes.</p>
-    <br>
     <p>Create a new product:</p>
     <app-button-add-product
         (productAdder)="addProduct()">
@@ -13,7 +13,7 @@
 
 <br>
 
-<div *ngFor="let product of products">
+<div *ngFor="let product of productsToShow">
     <app-product
         [product]="product">
     </app-product>

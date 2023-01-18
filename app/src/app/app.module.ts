@@ -7,6 +7,7 @@ import { ButtonAddProductComponent } from './button-add-product/button-add-produ
 import { ButtonDeleteProductComponent } from './button-delete-product/button-delete-product.component';
 import { ButtonAddStockComponent } from './button-add-stock/button-add-stock.component';
 import { ButtonRemoveStockComponent } from './button-remove-stock/button-remove-stock.component';
+import { ProductSearchBarComponent } from './product-search-bar/product-search-bar.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ButtonRemoveStockComponent } from './button-remove-stock/button-remove-
     ButtonAddProductComponent,
     ButtonDeleteProductComponent,
     ButtonAddStockComponent,
-    ButtonRemoveStockComponent
+    ButtonRemoveStockComponent,
+    ProductSearchBarComponent
   ],
   imports: [
     BrowserModule
