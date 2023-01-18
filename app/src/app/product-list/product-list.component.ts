@@ -81,7 +81,7 @@ export class ProductListComponent implements OnInit {
       const term = this.searchTerm() ?? '';
       if (term !== '') {
         this.searchResults = this.products.filter(product => {
-          return product.name.toLowerCase().includes(term);
+          return product.name.toLowerCase().includes(term.toLowerCase());
         });
       }
     }
